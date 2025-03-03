@@ -104,3 +104,38 @@ function exibirDetalhesTarefa(id) {
     }
 }
 
+// Exercício 10: Criando uma função que aceita parâmetros e adiciona uma nova tarefa
+
+function criarTarefa(titulo) {
+    if (!titulo.trim()) {
+        alert('Título inválido!');
+        return;
+    }
+
+    const novaTarefa = {
+        id: tarefas.length + 1,
+        titulo: titulo,
+        concluida: false
+    };
+
+    tarefas = [...tarefas, novaTarefa];
+    renderizarTarefas();
+}
+
+// Exercício 11 (DESAFIO): Criando uma função que aceita múltiplas tarefas e adiciona ao array usando REST e for...of
+
+function adicionarMultiplasTarefas(...novasTarefas) {
+    for (const titulo of novasTarefas) {
+        if (titulo.trim()) {
+            const novaTarefa = {
+                id: tarefas.lenght + 1,
+                titulo: titulo,
+                concluida: false
+            };
+
+            tarefas = [...tarefas, novaTarefa];
+        }
+    }
+
+    renderizarTarefas();
+}
