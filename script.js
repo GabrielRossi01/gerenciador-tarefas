@@ -24,7 +24,7 @@ function adicionarTarefa() {
     }
 
     const novaTarefa = {
-        id: tarefas.lenght + 1,
+        id: tarefas.length + 1,
         titulo: taskInput.value,
         concluida: false
     };
@@ -33,8 +33,9 @@ function adicionarTarefa() {
 
     alert('Tarefa adicionada com sucesso!');
 
-    taskInput.value = "";
+    taskInput.value = ""; // Limpa o input
     renderizarTarefas();
+    exibirTitulosMaiusculos();
 }
 
 // Exercício 4: Exibindo a lista de tarefas sempre que uma nova for adicionada
@@ -47,7 +48,9 @@ function renderizarTarefas(lista = tarefas) {
         li.innerHTML = `
             <span class="${concluida ? "completed" : ""}">${titulo}</span>
             <button onclick="concluirTarefa(${id})">Concluir</button>
-            `;
+            <button onclick="editarTarefa(${id})">Editar</button>
+            <button onclick="removerTarefa(${id})">Excluir</button>
+        `;
         taskList.appendChild(li);
     });
 }
@@ -56,7 +59,7 @@ function renderizarTarefas(lista = tarefas) {
 
 function concluirTarefa(id) {
     tarefas = tarefas.map(tarefa =>
-        tarefa.id === id ? {...tarefa, concluida: true} : tarefa
+        tarefa.id === id ? { ...tarefa, concluida: !tarefa.concluida} : tarefa
     );
 
     renderizarTarefas();
@@ -96,12 +99,12 @@ function contarConcluidas() {
 function exibirDetalhesTarefa(id) {
     const tarefa = tarefas.find(t => t.id === id);
 
-    if (tarefa) {
-        const {titulo, concluida} = tarefa; // Aplicando destructuring
-        alert(`Tarefa: ${titulo}\nStatus: ${concluida ? 'Concluída' : 'Pendente'}`);
-    } else {
-        alert ('Tarefa não encontrada.')
-    }
+    if (!tarefa) {
+        alert('Tarefa não encontrada.')
+    } 
+
+    const {titulo, concluida} = tarefa;
+    alert(`Tarefa: ${titulo}\nStatus: ${concluida ? 'Concluída' : 'Pendente'}`);
 }
 
 // Exercício 10: Criando uma função que aceita parâmetros e adiciona uma nova tarefa
@@ -128,7 +131,7 @@ function adicionarMultiplasTarefas(...novasTarefas) {
     for (const titulo of novasTarefas) {
         if (titulo.trim()) {
             const novaTarefa = {
-                id: tarefas.lenght + 1,
+                id: tarefas.length + 1,
                 titulo: titulo,
                 concluida: false
             };
@@ -146,9 +149,21 @@ function editarTarefa(id) {
     const novaDescricao = prompt('Digite o novo título da tarefa:');
     if (novaDescricao != null && novaDescricao.trim() !== "") {
         tarefas = tarefas.map(tarefa =>
-            tarefa.id === id ? {...tarefa, titulo: novaDescricao} : tarefa
+            tarefa.id === id ? { ...tarefa, titulo: novaDescricao } : tarefa
         );
-        
+
         renderizarTarefas();
     }
 }
+
+// Criando uma função para remover uma tarefa
+
+function removerTarefa(id) {
+    if (confirm('Tem certeza que deseja excluir essa tarefa?')) {
+        tarefas = tarefas.filter(tarefa => tarefa.id !== id);
+        renderizarTarefas();
+    }
+}
+
+// Renderiza lista inicial de tarefas
+renderizarTarefas();
