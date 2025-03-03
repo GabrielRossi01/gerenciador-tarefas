@@ -83,3 +83,10 @@ function exibirTitulosMaiusculos() {
 
 // Chamada para exibir os títulos ao adicionar uma tarefa
 exibirTitulosMaiusculos();
+
+// Exercício 8: calcular o total de tarefas concluídas e exibir um alert
+
+function contarConcluidas() {
+    const totalConcluidas = tarefas.reduce((acc, tarefa) => acc + (tarefa.concluida ? 1 : 0), 0);
+    alert(`Total de tarefas concluídas: ${totalConcluidas}`);
+}
