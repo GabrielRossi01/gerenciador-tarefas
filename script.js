@@ -51,3 +51,13 @@ function renderizarTarefas(lista = tarefas) {
         taskList.appendChild(li);
     });
 }
+
+// Exercício 5: Criar um botão "Concluir" para marcar tarefas como concluídas
+
+function concluirTarefa(id) {
+    tarefas = tarefas.map(tarefa =>
+        tarefa.id === id ? {...tarefa, concluida: true} : tarefa
+    );
+
+    renderizarTarefas();
+}
