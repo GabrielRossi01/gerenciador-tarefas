@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --cor-principal: #FFFFFF;
+    --cor-alternativa: #000000;
+    --fonte-principal: 'Montserrat';
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: url('../assets/fundo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    font-family: var(--fonte-principal);
+}
+
+header {
+    display: flex;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .2);
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 35px 35px;
+}
+
+header img {
+    width: 20%;
+    height: auto;
+}
+
+p {
+    color: var(--cor-principal);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 1vh;
+    opacity: 0.7;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20vh;
+    flex-direction: column;
+}
+
+#task-form {
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);  
+    padding: 2em 4em;
+    border-radius: 16px;
+}
+
+h1 {
+    color: var(--cor-principal);
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+input {
+    background-color: var(--cor-principal);
+    font-weight: bold;
+    padding: 10px;
+    width: 39%;
+    margin-top: 5vh;
+    border: none;
+    border-radius: 4px;
+    font-family: var(--fonte-principal);
+}
+
+button {
+    background-color: var(--cor-principal);
+    color: #000;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+    font-family: var(--fonte-principal);
+    font-weight: 500;
+}
+
+button:hover {
+    background-color: #FFD800;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 5vh;
+    color: var(--cor-principal);
+}
+
+li {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);  
+    padding: 10px;
+    margin: 5px auto;
+    width: 15vw;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #FFD800;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 35px 35px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);  
+    margin-top: 40vh;
+    flex-direction: column;
+}
+
+footer img {
+    width: 20%;
+}
+
+.footer__infos p{
+    font-family: var(--fonte-principal);
+    color: var(--cor-principal);
+    font-weight: 400;
+    margin-top: 5vh;
+    text-decoration: underline;
+}
+
+.footer__social-links {
+   margin-top: 5vh;
+}
+
+.footer__social-links i {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-right: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.footer__social-links i:hover{
+    transform: translateY(-5px);
+}  
