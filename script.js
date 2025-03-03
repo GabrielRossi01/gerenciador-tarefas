@@ -1,7 +1,7 @@
 // Exercício 1: Criando um array para armazenar as tarefas e adicionando uma tarefa inicial 
 
 let tarefas = [
-    {id: 1, titulo: 'Tarefa Inicial', concluida: false}
+    { id: 1, titulo: 'Tarefa Inicial', concluida: false }
 ];
 
 // Exercício 2: Capturar o valor do input e adicionar uma nova tarefa ao clciar no botão
@@ -35,4 +35,19 @@ function adicionarTarefa() {
 
     taskInput.value = "";
     renderizarTarefas();
+}
+
+// Exercício 4: Exibir a lista de tarefas sempre que uma nova for adicionada
+
+function renderizarTarefas(lista = tarefas) {
+    taskList.innerHTML = "";
+
+    lista.forEach(({ id, titulo, concluida }) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <span class="${concluida ? "completed" : ""}">${titulo}</span>
+            <button onclick="concluirTarefa(${id})">Concluir</button>
+            `;
+        taskList.appendChild(li);
+    });
 }
