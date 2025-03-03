@@ -4,7 +4,7 @@ let tarefas = [
     { id: 1, titulo: 'Tarefa Inicial', concluida: false }
 ];
 
-// Exercício 2: Capturar o valor do input e adicionar uma nova tarefa ao clciar no botão
+// Exercício 2: Capturarando o valor do input e adicionar uma nova tarefa ao clciar no botão
 
 // Referências ao DOM
 
@@ -15,7 +15,7 @@ const taskList = document.getElementById('taskList');
 
 addTaskBtn.addEventListener('click', adicionarTarefa);
 
-// Exercício 3: Exibir um alert informando que a tarefa foi adicionada com sucesso
+// Exercício 3: Exibindo um alert informando que a tarefa foi adicionada com sucesso
 
 function adicionarTarefa() {
     if (taskInput.value.trim() === "") {
@@ -37,7 +37,7 @@ function adicionarTarefa() {
     renderizarTarefas();
 }
 
-// Exercício 4: Exibir a lista de tarefas sempre que uma nova for adicionada
+// Exercício 4: Exibindo a lista de tarefas sempre que uma nova for adicionada
 
 function renderizarTarefas(lista = tarefas) {
     taskList.innerHTML = "";
@@ -52,7 +52,7 @@ function renderizarTarefas(lista = tarefas) {
     });
 }
 
-// Exercício 5: Criar um botão "Concluir" para marcar tarefas como concluídas
+// Exercício 5: Criando um botão "Concluir" para marcar tarefas como concluídas
 
 function concluirTarefa(id) {
     tarefas = tarefas.map(tarefa =>
@@ -62,7 +62,7 @@ function concluirTarefa(id) {
     renderizarTarefas();
 }
 
-// Exercício 6: Criar um botão para exibir apenas tarefas não concluídas
+// Exercício 6: Criando um botão para exibir apenas tarefas não concluídas
 
 const filterBtn = document.getElementById('filterBtn');
 
@@ -74,7 +74,7 @@ function filtrarPendentes() {
 // Evento de clique no botão de filtrar pendentes
 filterBtn.addEventListener('click', filtrarPendentes);
 
-// Exercício 7: Criar uma nova lista de tarefas com os títulos em maiúsculas e exibi-la no console
+// Exercício 7: Criando uma nova lista de tarefas com os títulos em maiúsculas e exibi-la no console
 
 function exibirTitulosMaiusculos() {
     const titulosMaiusculos = tarefas.map(tarefa => tarefa.titulo.toUpperCase());
@@ -84,9 +84,23 @@ function exibirTitulosMaiusculos() {
 // Chamada para exibir os títulos ao adicionar uma tarefa
 exibirTitulosMaiusculos();
 
-// Exercício 8: calcular o total de tarefas concluídas e exibir um alert
+// Exercício 8: Calculando o total de tarefas concluídas e exibir um alert
 
 function contarConcluidas() {
     const totalConcluidas = tarefas.reduce((acc, tarefa) => acc + (tarefa.concluida ? 1 : 0), 0);
     alert(`Total de tarefas concluídas: ${totalConcluidas}`);
 }
+
+// Exercício 9: Utilizando destructuring para extrair informações de um tarefa específica
+
+function exibirDetalhesTarefa(id) {
+    const tarefa = tarefas.find(t => t.id === id);
+
+    if (tarefa) {
+        const {titulo, concluida} = tarefa; // Aplicando destructuring
+        alert(`Tarefa: ${titulo}\nStatus: ${concluida ? 'Concluída' : 'Pendente'}`);
+    } else {
+        alert ('Tarefa não encontrada.')
+    }
+}
+
