@@ -10,7 +10,7 @@ let tarefas = [
 
 const taskInput = document.getElementById('taskInput');
 const addTaskBtn = document.getElementById('addTaskBtn');
-const filterBtn = document.getElementById('filterBtn');
+// const filterBtn = document.getElementById('filterBtn');
 const taskList = document.getElementById('taskList');
 
 addTaskBtn.addEventListener('click', adicionarTarefa);
@@ -61,3 +61,15 @@ function concluirTarefa(id) {
 
     renderizarTarefas();
 }
+
+// Exercício 6: Criar um botão para exibir apenas tarefas não concluídas
+
+const filterBtn = document.getElementById('filterBtn');
+
+function filtrarPendentes() {
+    const tarefasPendentes = tarefas.filter(tarefa => !tarefa.concluida);
+    renderizarTarefas(tarefasPendentes);
+}
+
+// Evento de clique no botão de filtrar pendentes
+filterBtn.addEventListener('click', filtrarPendentes);
