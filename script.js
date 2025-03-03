@@ -73,3 +73,13 @@ function filtrarPendentes() {
 
 // Evento de clique no botão de filtrar pendentes
 filterBtn.addEventListener('click', filtrarPendentes);
+
+// Exercício 7: Criar uma nova lista de tarefas com os títulos em maiúsculas e exibi-la no console
+
+function exibirTitulosMaiusculos() {
+    const titulosMaiusculos = tarefas.map(tarefa => tarefa.titulo.toUpperCase());
+    console.log('Lista de Tarfefas em Maiúsculas: ', titulosMaiusculos);
+}
+
+// Chamada para exibir os títulos ao adicionar uma tarefa
+exibirTitulosMaiusculos();
