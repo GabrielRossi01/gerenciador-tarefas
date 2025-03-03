@@ -139,3 +139,16 @@ function adicionarMultiplasTarefas(...novasTarefas) {
 
     renderizarTarefas();
 }
+
+// Criando uma função para editar uma tarefa
+
+function editarTarefa(id) {
+    const novaDescricao = prompt('Digite o novo título da tarefa:');
+    if (novaDescricao != null && novaDescricao.trim() !== "") {
+        tarefas = tarefas.map(tarefa =>
+            tarefa.id === id ? {...tarefa, titulo: novaDescricao} : tarefa
+        );
+        
+        renderizarTarefas();
+    }
+}
