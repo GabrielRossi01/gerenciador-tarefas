@@ -6,42 +6,46 @@ let tarefas = [
 
 // Exercício 2: Capturarando o valor do input e adicionar uma nova tarefa ao clciar no botão
 
-// Referências ao DOM
+// Referências ao DOM para acessar elementos da interface
 
 const taskInput = document.getElementById('taskInput');
 const addTaskBtn = document.getElementById('addTaskBtn');
-// const filterBtn = document.getElementById('filterBtn');
 const taskList = document.getElementById('taskList');
 
+// Adiciona um evento de clique ao botão de adicionar tarefa
 addTaskBtn.addEventListener('click', adicionarTarefa);
 
 // Exercício 3: Exibindo um alert informando que a tarefa foi adicionada com sucesso
 
 function adicionarTarefa() {
+
+    // Verifica se o input está vazio antes de adicionar uma nova tarefa
     if (taskInput.value.trim() === "") {
         alert('Digite uma tarefa válida!');
         return;
     }
 
+    // Cria um objeto de nova tarefa
     const novaTarefa = {
         id: tarefas.length + 1,
         titulo: taskInput.value,
         concluida: false
     };
 
+    // Adiciona a nova tarefa ao array de tarefas
     tarefas = [...tarefas, novaTarefa];
 
     alert('Tarefa adicionada com sucesso!');
 
     taskInput.value = ""; // Limpa o input
-    renderizarTarefas();
-    exibirTitulosMaiusculos();
+    renderizarTarefas();  // Atualiza a lista exibida
+    exibirTitulosMaiusculos();  // Exibe os títulos das tarefas em maiúsculas no console
 }
 
 // Exercício 4: Exibindo a lista de tarefas sempre que uma nova for adicionada
 
 function renderizarTarefas(lista = tarefas) {
-    taskList.innerHTML = "";
+    taskList.innerHTML = "";    // Limpa a lista antes de renderizar
 
     lista.forEach(({ id, titulo, concluida }) => {
         const li = document.createElement('li');
@@ -58,11 +62,13 @@ function renderizarTarefas(lista = tarefas) {
 // Exercício 5: Criando um botão "Concluir" para marcar tarefas como concluídas
 
 function concluirTarefa(id) {
+
+    // Atualiza o status da tarefa com base no ID
     tarefas = tarefas.map(tarefa =>
-        tarefa.id === id ? { ...tarefa, concluida: !tarefa.concluida} : tarefa
+        tarefa.id === id ? { ...tarefa, concluida: !tarefa.concluida } : tarefa
     );
 
-    renderizarTarefas();
+    renderizarTarefas();    // Atualiza a lista na interface
 }
 
 // Exercício 6: Criando um botão para exibir apenas tarefas não concluídas
@@ -101,9 +107,10 @@ function exibirDetalhesTarefa(id) {
 
     if (!tarefa) {
         alert('Tarefa não encontrada.')
-    } 
+    }
 
-    const {titulo, concluida} = tarefa;
+    // Extrai os dados usando destructuring
+    const { titulo, concluida } = tarefa;
     alert(`Tarefa: ${titulo}\nStatus: ${concluida ? 'Concluída' : 'Pendente'}`);
 }
 
@@ -122,7 +129,7 @@ function criarTarefa(titulo) {
     };
 
     tarefas = [...tarefas, novaTarefa];
-    renderizarTarefas();
+    renderizarTarefas();    // Atualiza a interface
 }
 
 // Exercício 11 (DESAFIO): Criando uma função que aceita múltiplas tarefas e adiciona ao array usando REST e for...of
@@ -140,7 +147,7 @@ function adicionarMultiplasTarefas(...novasTarefas) {
         }
     }
 
-    renderizarTarefas();
+    renderizarTarefas();   
 }
 
 // Criando uma função para editar uma tarefa
@@ -148,6 +155,8 @@ function adicionarMultiplasTarefas(...novasTarefas) {
 function editarTarefa(id) {
     const novaDescricao = prompt('Digite o novo título da tarefa:');
     if (novaDescricao != null && novaDescricao.trim() !== "") {
+
+        // Atualiza a descrição da tarefa com base no ID
         tarefas = tarefas.map(tarefa =>
             tarefa.id === id ? { ...tarefa, titulo: novaDescricao } : tarefa
         );
@@ -160,10 +169,12 @@ function editarTarefa(id) {
 
 function removerTarefa(id) {
     if (confirm('Tem certeza que deseja excluir essa tarefa?')) {
+
+        // Filtra a lista removendo a tarefa com o ID correspondente
         tarefas = tarefas.filter(tarefa => tarefa.id !== id);
         renderizarTarefas();
     }
 }
 
-// Renderiza lista inicial de tarefas
+// Renderiza lista inicial de tarefas ao carregar a página
 renderizarTarefas();

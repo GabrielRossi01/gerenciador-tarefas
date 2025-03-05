@@ -2,7 +2,8 @@
 
 :root {
     --cor-principal: #FFFFFF;
-    --cor-alternativa: #000000;
+    --cor-secundaria: #FFD800;
+    --cor-borda: rgba(255, 255, 255, .2);
     --fonte-principal: 'Montserrat';
 }
 
@@ -21,7 +22,7 @@ body {
 header {
     display: flex;
     background: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
+    border: 2px solid var(--cor-borda);
     backdrop-filter: blur(20px);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, .2);
     justify-content: center;
@@ -53,7 +54,7 @@ main{
 
 #task-form {
     background-color: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
+    border: 2px solid var(--cor-borda);
     backdrop-filter: blur(20px);
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);  
     padding: 2em 4em;
@@ -80,7 +81,7 @@ input {
 
 button {
     background-color: var(--cor-principal);
-    color: #000;
+    color: #000000;
     padding: 10px 20px;
     margin: 5px;
     cursor: pointer;
@@ -92,7 +93,7 @@ button {
 }
 
 button:hover {
-    background-color: #FFD800;
+    background-color: var(--cor-secundaria);
 }
 
 ul {
@@ -104,7 +105,7 @@ ul {
 
 li {
     background: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
+    border: 2px solid var(--cor-borda);
     backdrop-filter: blur(20px);
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);  
     padding: 10px;
@@ -118,7 +119,7 @@ li {
 
 .completed {
     text-decoration: line-through;
-    color: #FFD800;
+    color: var(--cor-secundaria);
 }
 
 .footer {
@@ -128,7 +129,7 @@ li {
     align-items: center;
     padding: 35px 35px;
     background-color: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
+    border: 2px solid var(--cor-borda);
     backdrop-filter: blur(20px);
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);  
     margin-top: 40vh;
@@ -144,7 +145,6 @@ footer img {
     color: var(--cor-principal);
     font-weight: 400;
     margin-top: 5vh;
-    text-decoration: underline;
 }
 
 .footer__social-links {
@@ -152,7 +152,7 @@ footer img {
 }
 
 .footer__social-links i {
-    color: #ffffff;
+    color: var(--cor-principal);
     font-size: 1.5rem;
     margin-right: 10px;
     transition: all 0.3s ease-in-out;
