@@ -1,9 +1,10 @@
 # 🗂️ Gerenciador de Tarefas Diárias
 
-Esse projeto consiste em uma página web que permite aos usuários adicionar, editar, filtrar e gerenciar suas tarefas diárias.
-O projeto utiliza **HTML** para a estrutura, **CSS** para estilização e **JavaScript** para a lógica, como foco na manipulação do DOM e no uso de conceitos avançados como **destructing, spread/rest, estruturas de repetição e métodos de array**.
+- Esse projeto consiste em uma página web que permite aos usuários adicionar, editar, filtrar e gerenciar suas tarefas diárias.
 
-![Prévia do projeto](assets/previa-projeto.png)
+- O projeto utiliza **HTML** para a estrutura, **CSS** para estilização e **JavaScript** para a lógica, com foco na manipulação do DOM e no uso de conceitos avançados como **destructing, spread/rest, estruturas de repetição e métodos de array**.
+
+![Prévia do projeto](assets/tela-projeto.png)
 
 ## 💎 Tecnologias Utilizadas
 
@@ -16,14 +17,14 @@ O projeto utiliza **HTML** para a estrutura, **CSS** para estilização e **Java
 
 ## 🏁 Como executar o projeto
 
-1. Clone o repositório
+- Clone o repositório
 
 ```bash
 git clone https://github.com/GabrielRossi01/gerenciador-tarefas.git
 ```
-2. Abra o arquivo `index.html` no navegador
+- Abra o arquivo `index.html` no navegador
 
-3. Adicione, edite e gerencie suas tarefas !!
+- Adicione, edite e gerencie suas tarefas !!
 
 ## 🧑‍💻 Desenvolvimento
 
